@@ -18,3 +18,9 @@ ASE-Lab aims to follow ordinary good software engineering practices while recogn
 ## Definition of a useful implementation slice
 
 A slice should have a documented purpose, a minimal working path, a repeatable demonstration, basic automated checks, and an explanation of what ASE-Lab implements versus what it reuses.
+
+## Proportionate delivery cycle
+
+For each increment, agree on the user problem and acceptance criteria before implementation. Review the design choices and execution risks that matter for that increment; record a consequential architecture decision when alternatives and lasting trade-offs exist. Then implement, test, inspect observed agent behavior, and have a human review the result. Update the relevant documentation when evidence changes an assumption or decision.
+
+AI assistants may help with analysis, design alternatives, code, tests, and documentation. Their output is a proposal subject to the same review and validation as any other contribution. Do not present an AI-generated explanation, claimed test result, or proposed patch as verified evidence without independently checking it. The [first delivery slice](../planning/first-slice.md) gives the initial acceptance and decision gates.

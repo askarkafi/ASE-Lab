@@ -18,7 +18,7 @@ The project connects three complementary perspectives:
 
 ## Approach
 
-We intend to **evaluate existing agent SDKs and reuse proven infrastructure where appropriate** rather than reimplement an entire agent runtime from scratch. ASE-Lab will focus on clearly defined components and integration points under its own control. No particular SDK or detailed internal architecture has been finalized.
+We have selected the **OpenHands Software Agent SDK** as the initial implementation basis to support hands-on learning and incremental software-agent development rather than reimplementing an entire runtime. Actual integration, the first task, and detailed internal architecture remain to be validated. The selection is revisable if concrete evidence requires it.
 
 The initial academic stage targets **a small but genuine part of the long-term system**, not a complete product, production-ready platform, or multi-agent solution within one semester.
 
@@ -28,9 +28,9 @@ The initial academic stage targets **a small but genuine part of the long-term s
 | --- | --- |
 | Project identity and broad direction | Established |
 | Project documentation | Initial public foundation |
-| SDK selection | Under evaluation |
+| SDK selection | OpenHands chosen for initial integration; not yet validated in a running ASE-Lab capability |
 | Detailed architecture | Not finalized |
-| First implementation slice | Not selected |
+| First implementation slice | Repository issue investigation selected as the initial direction; not implemented |
 | Functional product release | Not available |
 
 ## Documentation
@@ -43,7 +43,9 @@ Start with the [documentation index](docs/README.md). Key documents include:
 - [Engineering principles](docs/engineering/engineering-principles.md)
 - [SDK selection approach](docs/engineering/sdk-strategy.md)
 - [Educational objectives](docs/education/learning-objectives.md)
-- [High-level roadmap](docs/planning/roadmap.md)
+- [OpenHands-first, evidence-linked roadmap](docs/planning/roadmap.md)
+- [Academic foundations and evidence-based rationale](docs/research/academic-foundations.md) ([فارسی](docs/research/academic-foundations.fa.md))
+- [University course, project and paper resource index](docs/research/academic-resources.md)
 - [Public release policy](docs/governance/publication-policy.md)
 
 ## Participation and releases

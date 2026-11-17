@@ -6,6 +6,8 @@ These documents describe the **public, currently known** direction of ASE-Lab. A
 
 - [Vision](overview/vision.md) — purpose, long-term goals, audience, and design values.
 - [Scope](overview/scope.md) — the distinction between the product vision and the first academic stage.
+- [First delivery slice](planning/first-slice.md) - selected problem direction, acceptance approach, and decision gates.
+- [First-slice delivery plan](planning/first-slice-delivery-plan.md) - execution checkpoints, evidence, and timing of open decisions.
 
 ## Software architecture
 
@@ -19,10 +21,16 @@ These documents describe the **public, currently known** direction of ASE-Lab. A
 - [SDK strategy](engineering/sdk-strategy.md)
 - [Dependency and fork policy](engineering/dependencies-and-forks.md)
 
+## Academic foundations and learning resources
+
+- [Academic and research rationale](research/academic-foundations.md) — how selected university courses and published research inform the educational and engineering direction.
+- [Persian translation of the academic rationale](research/academic-foundations.fa.md) — same rationale in Persian.
+- [Academic resource and download-link index](research/academic-resources.md) — linked original syllabi, lectures, assignments, repositories, and papers (links may change).
+
 ## Education and evolution
 
 - [Learning objectives](education/learning-objectives.md)
-- [High-level roadmap](planning/roadmap.md)
+- [OpenHands-first, evidence-linked roadmap](planning/roadmap.md)
 - [Potential extensions](planning/future-extensions.md)
 - [Public release policy](governance/publication-policy.md)
 

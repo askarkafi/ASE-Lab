@@ -9,7 +9,7 @@ flowchart TD
     User[User or Client] --> App[ASE-Lab Application / Tasks]
     App --> Agent[ASE-Lab Agent Definitions and Policies]
     Agent --> Boundary[Runtime Integration Boundary]
-    Boundary --> Runtime[Candidate Agent SDK / Runtime]
+    Boundary --> Runtime[OpenHands SDK — selected initial runtime]
     Runtime --> Model[LLM Provider]
     Runtime --> Tools[Tools and optional MCP connections]
     Runtime --> Environment[Workspace / Execution Environment]
@@ -22,7 +22,7 @@ flowchart TD
 | --- | --- | --- |
 | Application and tasks | ASE-Lab-defined project semantics | Conceptual |
 | Specialized agent configuration | ASE-Lab-owned task-specific behavior | Conceptual |
-| Agent execution loop | Prefer an evaluated SDK where suitable | Direction, not final selection |
+| Agent execution loop | OpenHands SDK for the initial implementation | Selected; integration not yet demonstrated |
 | Tooling and skills | Mix of SDK facilities and project extensions | Exploration |
 | Runtime integration boundary | Keep project-owned code reasonably isolated | Principle; interface not designed |
 | Workspace and execution safety | Appropriate isolated or restricted environment | Requirement before unsafe execution |
@@ -38,7 +38,8 @@ flowchart TD
 
 ## Open questions
 
-- Which SDK best supports the first selected software engineering use case?
+- For the [first slice](../planning/first-slice.md), which task input, output, and review evidence belong to ASE-Lab rather than the SDK?
+- Which OpenHands extension points suffice for the first software engineering use case?
 - Which components should be extended via SDK APIs, and which, if any, require a fork?
 - What is the smallest useful executable slice?
 - Which observability and control mechanisms are essential for that slice?

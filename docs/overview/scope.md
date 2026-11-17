@@ -1,6 +1,6 @@
 # Scope and boundaries
 
-**Status:** Preliminary — the first implementation slice is not defined yet.
+**Status:** Preliminary - the first delivery direction is selected; details remain open.
 
 ## Long-term product scope
 
@@ -11,12 +11,12 @@ Potential capabilities include task definitions, specialized agent behavior, too
 The initial work is expected to include:
 
 - Analysis and documentation of a coherent architectural direction.
-- Evaluation of a suitable existing agent SDK or equivalent infrastructure.
+- Initial integration and task-driven validation of the selected OpenHands Software Agent SDK.
 - Selection of a **single small, end-to-end implementation slice** with real behavior.
 - Automated checks and evidence of what the implemented slice actually does.
 - An explanation of the concepts learned and the boundary between reused and project-owned code.
 
-The exact slice, implementation technology, and acceptance tests are deliberately **to be determined**.
+The [selected first delivery direction](../planning/first-slice.md) is repository issue investigation with a reviewable patch proposal or justified no-patch report. Its capability-level acceptance criteria are agreed; task instances, their specific review rubrics, the remaining implementation stack, and architecture require further review and feasibility evidence before implementation.
 
 ## Not required in the initial stage
 
