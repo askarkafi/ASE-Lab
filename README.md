@@ -4,7 +4,7 @@
 
 *Design and incremental development of an extensible LLM-based agent platform for software engineering.*
 
-> **Project status:** Foundation stage — architecture and documentation in progress. No operational agent platform is released yet.
+> **Project status:** A first supervised software slice was built and evaluated privately. No executable ASE-Lab capability or production platform has been published yet.
 
 ## Overview
 
@@ -18,7 +18,7 @@ The project connects three complementary perspectives:
 
 ## Approach
 
-We have selected the **OpenHands Software Agent SDK** as the initial implementation basis to support hands-on learning and incremental software-agent development rather than reimplementing an entire runtime. Actual integration, the first task, and detailed internal architecture remain to be validated. The selection is revisable if concrete evidence requires it.
+We selected the **OpenHands Software Agent SDK** as the initial implementation basis. A private command-line integration and a selected three-case evaluation have been completed; the maintainer accepted the bounded engineering demonstration. The selection remains revisable if concrete evidence requires it. See the [public evaluation summary](docs/evaluation/first-slice.md) for outcomes and limits.
 
 The initial academic stage targets **a small but genuine part of the long-term system**, not a complete product, production-ready platform, or multi-agent solution within one semester.
 
@@ -28,9 +28,9 @@ The initial academic stage targets **a small but genuine part of the long-term s
 | --- | --- |
 | Project identity and broad direction | Established |
 | Project documentation | Initial public foundation |
-| SDK selection | OpenHands chosen for initial integration; not yet validated in a running ASE-Lab capability |
+| SDK selection | OpenHands 1.62.0 exercised in a private ASE-Lab command-line integration |
 | Detailed architecture | Not finalized |
-| First implementation slice | Repository issue investigation selected as the initial direction; not implemented |
+| First implementation slice | Supervised repository issue investigation implemented and evaluated privately; code publication pending |
 | Functional product release | Not available |
 
 ## Documentation
@@ -44,6 +44,7 @@ Start with the [documentation index](docs/README.md). Key documents include:
 - [SDK selection approach](docs/engineering/sdk-strategy.md)
 - [Educational objectives](docs/education/learning-objectives.md)
 - [OpenHands-first, evidence-linked roadmap](docs/planning/roadmap.md)
+- [First-slice evaluation summary](docs/evaluation/first-slice.md)
 - [Academic foundations and evidence-based rationale](docs/research/academic-foundations.md) ([فارسی](docs/research/academic-foundations.fa.md))
 - [University course, project and paper resource index](docs/research/academic-resources.md)
 - [Public release policy](docs/governance/publication-policy.md)
@@ -58,4 +59,4 @@ This public repository is the **curated, published view** of ASE-Lab. Developmen
 
 ## Disclaimer
 
-Architecture diagrams and future features in this repository are **design intentions**, not claims of implemented functionality or release commitments.
+Architecture diagrams and future features remain **design intentions**. The private first-slice evidence supports only the bounded behavior described in the evaluation summary; it is not a release commitment for other features.

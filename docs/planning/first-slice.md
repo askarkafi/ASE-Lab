@@ -1,6 +1,6 @@
 # First delivery slice: repository issue investigation
 
-**Status:** Direction, required behavior, and capability-level acceptance criteria agreed by maintainer. Task instances and execution settings remain open. No capability has been implemented.
+**Status:** A supervised private implementation and selected three-case evaluation were accepted as a bounded engineering demonstration. Executable code has not been published. See the [public evaluation summary](../evaluation/first-slice.md).
 
 **Purpose:** Define one complete, testable software-engineering delivery cycle before choosing detailed implementation contracts.
 
@@ -15,11 +15,11 @@ This is the **selected direction for the first delivery slice**. One repository 
 1. A maintainer supplies an issue description, a specific repository revision, permitted files and actions, validation commands, and execution limits. Missing required inputs are identified before agent execution.
 2. ASE-Lab prepares a reproducible, disposable or appropriately restricted workspace without exposing credentials. Tool, time, and resource limits are fixed before the run.
 3. The agent examines relevant code and tests, supports its diagnosis with observations, and distinguishes evidence from interpretation.
-4. The run ends with either a reviewable patch and rationale or an explicit no-patch report explaining why a defensible change could not be proposed.
+4. A completed run ends with either a reviewable patch and rationale or an explicit no-patch report explaining why a defensible change could not be proposed. An execution failure is reported separately.
 5. Permitted validation commands are run where possible. The report records commands actually executed, their observed results, commands not run, uncertainty, and incomplete work. Tool failures and limit exhaustion are reported as outcomes, not hidden.
 6. A maintainer reviews the report and any patch before a change is accepted or published.
 
-The initial interface, configuration format, and exact extension points remain undecided. The workflow describes required behavior, not an implemented architecture.
+The private demonstration uses a versioned JSON task, a supervised command-line runner, and a small OpenHands worker adapter. These choices do not settle the long-term product interface.
 
 ## Scope for the first delivery
 
@@ -32,8 +32,8 @@ Out of scope: automatically merging or publishing changes, unattended access to 
 
 ## Acceptance criteria for every run
 
-- The run produces one of the two explicit outcomes above, including when it cannot complete the task.
-- No file change or command exceeds the permitted scope; the output does not expose credentials or private data.
+- A completed run produces one of the two task outcomes above. A run that cannot complete reports an explicit error, limit, or interruption status; it is not counted as a justified no-patch conclusion.
+- For an approved disposable repository snapshot, local commands run in a restricted container. Changes outside the named file scope are detected and rejected after execution; temporary out-of-scope changes can occur inside that disposable checkout. Credentials remain outside the agent container.
 - A reviewer can distinguish observed facts, the agent's interpretation, and unresolved uncertainty.
 - Reported test commands and results match execution evidence. A test not run is never reported as passed.
 - Any patch is inspectable and is not automatically merged or published.
@@ -61,12 +61,10 @@ Report successes, failures, latency, and model or tool cost where available. A f
 
 The first two gates may refine or change this slice. A concrete blocker should trigger a documented scope or SDK decision rather than speculative infrastructure.
 
-## Open decisions
+## Remaining decisions beyond the private demonstration
 
-- Which issue types, repositories, and fixed revisions make a safe, representative first task set?
-- What concrete serialization and interface best carry the required inputs and reviewable outputs?
-- Which OpenHands workspace and tool controls satisfy the required limits, and what numerical limits suit the selected tasks?
-- Which project-owned extension, if any, is justified by the first tasks?
-- What evidence would justify changing the first-slice direction or the initial SDK choice?
+- Which additional issue types and repositories justify expanding beyond the selected evaluation set?
+- What monetary cost ceiling and host-level stopping behavior can be verified for broader operation?
+- When would a different provider, SDK extension, or interface be justified by a concrete task?
 
-See the [scope](../overview/scope.md), [conceptual architecture](../architecture/conceptual-architecture.md), [delivery plan](first-slice-delivery-plan.md), and [roadmap](roadmap.md). These questions should be resolved with maintainer review and implementation evidence, not treated as decisions already made.
+See the [scope](../overview/scope.md), [conceptual architecture](../architecture/conceptual-architecture.md), [delivery plan](first-slice-delivery-plan.md), [roadmap](roadmap.md), and [evaluation summary](../evaluation/first-slice.md). Resolve remaining questions with maintainer review and implementation evidence.

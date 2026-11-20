@@ -1,6 +1,6 @@
 # Scope and boundaries
 
-**Status:** Preliminary - the first delivery direction is selected; details remain open.
+**Status:** A first bounded engineering demonstration was accepted privately; broader product scope remains open.
 
 ## Long-term product scope
 
@@ -16,7 +16,7 @@ The initial work is expected to include:
 - Automated checks and evidence of what the implemented slice actually does.
 - An explanation of the concepts learned and the boundary between reused and project-owned code.
 
-The [selected first delivery direction](../planning/first-slice.md) is repository issue investigation with a reviewable patch proposal or justified no-patch report. Its capability-level acceptance criteria are agreed; task instances, their specific review rubrics, the remaining implementation stack, and architecture require further review and feasibility evidence before implementation.
+The [first delivery slice](../planning/first-slice.md) investigates repository issues and proposes a reviewable patch or justified no-patch report. A private supervised implementation and selected [three-case evaluation](../evaluation/first-slice.md) were completed. This is evidence for a bounded workflow, not production readiness or a general success rate.
 
 ## Not required in the initial stage
 

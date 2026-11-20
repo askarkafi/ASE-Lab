@@ -1,10 +1,10 @@
 # OpenHands-first, evidence-linked roadmap
 
-**Status:** Initial implementation direction; intentionally unscheduled.
+**Status:** Initial implementation direction; intentionally unscheduled. The first private slice reached a bounded evaluation checkpoint.
 
 **Selected starting point:** [OpenHands Software Agent SDK](https://github.com/OpenHands/software-agent-sdk).
 
-**First vertical slice:** [Repository issue investigation is selected](first-slice.md) as the initial direction; detailed scope awaits task selection and feasibility evidence.
+**First vertical slice:** [Repository issue investigation](first-slice.md) was implemented and evaluated privately. See the [public outcome summary](../evaluation/first-slice.md). Publication of executable code remains a separate decision.
 
 The [first-slice delivery plan](first-slice-delivery-plan.md) sets the execution checkpoints and timing of decisions for this increment.
 

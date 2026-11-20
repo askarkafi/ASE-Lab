@@ -8,6 +8,7 @@ These documents describe the **public, currently known** direction of ASE-Lab. A
 - [Scope](overview/scope.md) — the distinction between the product vision and the first academic stage.
 - [First delivery slice](planning/first-slice.md) - selected problem direction, acceptance approach, and decision gates.
 - [First-slice delivery plan](planning/first-slice-delivery-plan.md) - execution checkpoints, evidence, and timing of open decisions.
+- [First-slice evaluation summary](evaluation/first-slice.md) - reviewed private outcomes, failures, and remaining limits.
 
 ## Software architecture
 

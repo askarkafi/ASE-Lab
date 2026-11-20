@@ -1,8 +1,8 @@
 # Conceptual architecture
 
-**Status:** Conceptual / not approved for implementation
+**Status:** Conceptual map; a small supervised subset was implemented privately.
 
-The following diagram describes **possible responsibilities**, not deployed services, selected classes, or finalized module boundaries.
+The following diagram describes the broader direction, not deployed services or finalized module boundaries. The private [first-slice evaluation](../evaluation/first-slice.md) exercises only a small subset.
 
 ```mermaid
 flowchart TD
@@ -22,9 +22,9 @@ flowchart TD
 | --- | --- | --- |
 | Application and tasks | ASE-Lab-defined project semantics | Conceptual |
 | Specialized agent configuration | ASE-Lab-owned task-specific behavior | Conceptual |
-| Agent execution loop | OpenHands SDK for the initial implementation | Selected; integration not yet demonstrated |
+| Agent execution loop | OpenHands SDK for the initial implementation | Exercised in a private supervised run |
 | Tooling and skills | Mix of SDK facilities and project extensions | Exploration |
-| Runtime integration boundary | Keep project-owned code reasonably isolated | Principle; interface not designed |
+| Runtime integration boundary | Keep project-owned code reasonably isolated | Small private command-line runner and worker adapter |
 | Workspace and execution safety | Appropriate isolated or restricted environment | Requirement before unsafe execution |
 | Multi-agent coordination | Only if real tasks justify it | Future possibility |
 
@@ -36,12 +36,10 @@ flowchart TD
 - Treat context management, planning, memory, and event tracing as concerns to study and place intentionally—not necessarily independent modules.
 - Introduce permissions, limits, and isolation before running untrusted or model-generated commands.
 
-## Open questions
+## Future design questions
 
-- For the [first slice](../planning/first-slice.md), which task input, output, and review evidence belong to ASE-Lab rather than the SDK?
-- Which OpenHands extension points suffice for the first software engineering use case?
-- Which components should be extended via SDK APIs, and which, if any, require a fork?
-- What is the smallest useful executable slice?
-- Which observability and control mechanisms are essential for that slice?
+- Which task and report contracts should extend beyond the supervised [first slice](../planning/first-slice.md)?
+- Which OpenHands extension points will be needed for a concrete next use case?
+- What further observability and control evidence is needed before broader operation?
 
-The answers will follow documented feasibility work. This diagram should be updated whenever evidence changes the design.
+Future decisions should follow documented evidence. Update this diagram when those decisions change the broader design.

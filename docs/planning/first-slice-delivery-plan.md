@@ -1,6 +1,6 @@
 # Delivery plan for the first vertical slice
 
-**Status:** Delivery approach approved by maintainer; implementation has not begun.
+**Status:** The private first-slice engineering demonstration was accepted by the maintainer. This plan remains the record of its delivery checkpoints; publication is a separate review gate. See the [evaluation summary](../evaluation/first-slice.md).
 
 **Scope:** The [first delivery slice](first-slice.md), from a bounded repository issue to a human-reviewable patch or justified no-patch report.
 
@@ -54,4 +54,4 @@ Keep experimental code and traces out of public commits until reviewed. This tas
 
 Acceptance criteria and the method of review are defined before coding. One temporary task is enough for SDK feasibility. Deterministic tests accompany implementation. The final task set and repository revisions are frozen before evaluation, after the execution path is understood.
 
-The repository choice, exact task instances, numerical execution limits, interface, output serialization, SDK extension points, and detailed module boundaries remain open. Decide each at the checkpoint where its required evidence becomes available. No production deployment, general multi-agent architecture, or multi-SDK compatibility is required for this slice.
+For the private demonstration, the task set, initial CLI/JSON interface, and numerical limits were fixed and evaluated. The [public summary](../evaluation/first-slice.md) records the outcome and remaining limits. Broader provider support, monetary cost controls, and product interfaces remain future decisions. No production deployment, general multi-agent architecture, or multi-SDK compatibility is required for this slice.
