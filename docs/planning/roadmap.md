@@ -1,6 +1,6 @@
 # OpenHands-first, evidence-linked roadmap
 
-**Status:** Initial implementation direction; intentionally unscheduled. The first private slice reached a bounded evaluation checkpoint.
+**Status:** The first supervised slice completed its bounded delivery cycle and was published as source; later increments remain unscheduled.
 
 **Selected starting point:** [OpenHands Software Agent SDK](https://github.com/OpenHands/software-agent-sdk).
 
