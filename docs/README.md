@@ -12,6 +12,7 @@ These documents describe the **public, currently known** direction of ASE-Lab. A
 
 ## Software architecture
 
+- [First-slice run guide](../ase_lab/README.md) - executable source, task contract, boundaries, and local validation.
 - [Conceptual architecture](architecture/conceptual-architecture.md) — responsibilities and boundaries, not a finished design.
 - [Public decisions](architecture/decisions.md) — established principles only; unresolved technical decisions remain open.
 - [ADR template](adr/TEMPLATE.md) — structure for publishing accepted architecture decisions when appropriate.

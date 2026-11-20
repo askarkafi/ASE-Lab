@@ -2,7 +2,7 @@
 
 Thank you for your interest in ASE-Lab.
 
-**Current stage:** project foundation. The codebase, contribution process, and license are still being defined. **Please discuss proposed code contributions before opening an implementation pull request.**
+**Current stage:** one supervised code slice is published under the MIT License. The general contribution process is still being defined. **Please discuss proposed code contributions before opening an implementation pull request.**
 
 ## Discussion and documentation
 
@@ -15,7 +15,7 @@ Suggestions, questions, and corrections to public documentation are welcome thro
 
 ## Code contributions
 
-A formal code contribution and licensing policy will be added before general external code contributions are accepted. Public visibility of the repository should not be interpreted as an open-source license for its original contents.
+A formal contribution policy will be added before general external code contributions are accepted. The [MIT License](LICENSE) covers ASE-Lab's original published content; third-party components retain their own licenses.
 
 ## Review standards
 

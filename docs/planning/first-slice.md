@@ -1,6 +1,6 @@
 # First delivery slice: repository issue investigation
 
-**Status:** A supervised private implementation and selected three-case evaluation were accepted as a bounded engineering demonstration. Executable code has not been published. See the [public evaluation summary](../evaluation/first-slice.md).
+**Status:** A supervised implementation and selected three-case private evaluation were accepted as a bounded engineering demonstration. The [source slice](../../ase_lab/README.md) is published for local review and execution. See the [evaluation summary](../evaluation/first-slice.md).
 
 **Purpose:** Define one complete, testable software-engineering delivery cycle before choosing detailed implementation contracts.
 

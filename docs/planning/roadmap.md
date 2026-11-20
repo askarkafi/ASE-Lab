@@ -4,7 +4,7 @@
 
 **Selected starting point:** [OpenHands Software Agent SDK](https://github.com/OpenHands/software-agent-sdk).
 
-**First vertical slice:** [Repository issue investigation](first-slice.md) was implemented and evaluated privately. See the [public outcome summary](../evaluation/first-slice.md). Publication of executable code remains a separate decision.
+**First vertical slice:** [Repository issue investigation](first-slice.md) was implemented and evaluated privately, and its supervised source is published. See the [public outcome summary](../evaluation/first-slice.md) and [run guide](../../ase_lab/README.md).
 
 The [first-slice delivery plan](first-slice-delivery-plan.md) sets the execution checkpoints and timing of decisions for this increment.
 

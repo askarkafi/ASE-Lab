@@ -1,6 +1,6 @@
 # Dependencies, upstream projects, and forks
 
-**Status:** Initial policy; subject to revision before software distribution.
+**Status:** Initial policy for the first supervised source release; review dependencies before each distribution.
 
 ## Separate ownership
 
@@ -22,4 +22,6 @@ ASE-Lab distinguishes between (1) original project material, (2) third-party dep
 
 ## Current licensing status
 
-ASE-Lab's own license has **not** been selected. This initial public documentation does not grant additional reuse rights beyond applicable law. Before accepting external code contributions or distributing executable components, project licensing and contributor terms need to be clarified.
+ASE-Lab's original published code and documentation use the [MIT License](../../LICENSE). This does not relicense OpenHands, Python, the example `more-itertools` repository, or other third-party components. They retain their own terms. General external code contributions remain paused until contribution terms are clarified.
+
+The first source release records direct component attribution in [THIRD_PARTY.md](../../THIRD_PARTY.md). The Dockerfile pins its base image and top-level SDK packages, but transitive packages are not fully locked; later builds need their own version record before being treated as equivalent to the evaluated image.

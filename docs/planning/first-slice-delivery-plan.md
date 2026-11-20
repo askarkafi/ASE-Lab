@@ -1,6 +1,6 @@
 # Delivery plan for the first vertical slice
 
-**Status:** The private first-slice engineering demonstration was accepted by the maintainer. This plan remains the record of its delivery checkpoints; publication is a separate review gate. See the [evaluation summary](../evaluation/first-slice.md).
+**Status:** The private first-slice engineering demonstration was accepted by the maintainer, and its supervised source was published after a separate review. This plan records the delivery checkpoints. See the [evaluation summary](../evaluation/first-slice.md).
 
 **Scope:** The [first delivery slice](first-slice.md), from a bounded repository issue to a human-reviewable patch or justified no-patch report.
 

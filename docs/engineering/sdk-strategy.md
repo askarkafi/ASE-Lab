@@ -1,6 +1,6 @@
 # SDK strategy — OpenHands-first
 
-**Status:** OpenHands Software Agent SDK selected as the **initial implementation basis**; integration and suitability remain to be validated in actual ASE-Lab tasks.
+**Status:** OpenHands Software Agent SDK selected as the **initial implementation basis** and exercised in a supervised first slice. Suitability beyond the selected tasks remains open.
 
 ## Decision and rationale
 
@@ -16,8 +16,8 @@ An initial documentary evaluation considered OpenHands, the more general [OpenAI
 4. **Prefer supported extension points to a fork.** Record concrete incompatibilities before considering internal modifications or a maintained fork.
 5. **Do not overclaim.** An SDK choice is not an implemented agent, a benchmark result, or a promise of future multi-runtime support.
 
-## Minimum validation in the roadmap
+## Minimum validation and current evidence
 
-The [OpenHands-first roadmap](../planning/roadmap.md) starts with one minimal, repeatable SDK run, then tested ASE-Lab-owned behavior and a bounded software-engineering capability. Add a custom extension only if the task justifies it. Inspect execution events, task results, failures, version compatibility, and the effort of integration as these steps unfold.
+The [OpenHands-first roadmap](../planning/roadmap.md) led to a bounded SDK run, tested ASE-Lab-owned behavior, and a supervised repository-issue slice. The [evaluation summary](../evaluation/first-slice.md) records successes, failures, and limits. Add a custom extension only if a later task justifies it; continue inspecting version compatibility and integration costs as the product evolves.
 
 See [academic foundations](../research/academic-foundations.md) for the educational and research rationale, and [academic resource index](../research/academic-resources.md) for official course assignments and paper links.

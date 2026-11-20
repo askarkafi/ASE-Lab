@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "task_id": "exactly-n-negative",
+  "issue": "exactly_n([True], -2) raises ValueError. A negative count should return False without consuming the iterable. Preserve nonnegative behavior and add a regression test.",
+  "repository": "C:/replace/with/approved/local/repository",
+  "revision": "8c1a6ef241b51ff055e89219f050ccf4f15f37f6",
+  "allowed_edit_paths": [
+    "more_itertools/more.py",
+    "tests/test_more.py"
+  ],
+  "validation_commands": [
+    {
+      "id": "focused",
+      "argv": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_more.ExactlyNTests"
+      ],
+      "timeout_seconds": 60,
+      "after": null
+    },
+    {
+      "id": "regression",
+      "argv": [
+        "python",
+        "-c",
+        "import more_itertools as m; assert m.exactly_n([True], -2) is False; it=iter([True]); assert m.exactly_n(it, -2) is False; assert next(it) is True"
+      ],
+      "timeout_seconds": 30,
+      "after": "focused"
+    },
+    {
+      "id": "suite",
+      "argv": [
+        "python",
+        "-m",
+        "unittest"
+      ],
+      "timeout_seconds": 180,
+      "after": "regression"
+    }
+  ],
+  "model_profile": "deepseek-flash-relay",
+  "limits": {
+    "wall_seconds": 900,
+    "sdk_iterations": 25,
+    "model_requests": 25,
+    "memory_mib": 2048,
+    "cpus": 2,
+    "pids": 128
+  }
+}

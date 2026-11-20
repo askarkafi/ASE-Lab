@@ -1,6 +1,6 @@
 # First private-slice evaluation: public summary
 
-**Status:** Public summary of a maintainer-reviewed private engineering demonstration. Runnable code, raw traces, patches, task inputs, and local configuration are excluded from this documentation release.
+**Status:** Public summary of a maintainer-reviewed private engineering demonstration. The [supervised source slice](../../ase_lab/README.md) is included in this release; raw traces, generated patches, and local configuration remain private.
 
 ASE-Lab implemented a supervised command-line path for investigating one issue in a fixed repository snapshot. The project-owned runner validates a task, prepares a disposable checkout, invokes OpenHands SDK 1.62.0 in a restricted Docker container, inspects the Git diff, runs specified validation commands independently, and writes a report for human review. A short-lived relay held the model credential outside the agent container. This is a bounded demonstration, not a production service or a general agent platform.
 
@@ -24,4 +24,4 @@ All initial failures and reruns were retained in private evidence. For the selec
 - One attempt recorded an elapsed-time overrun whose cause has not been established. The supervisor now rejects a late return, but real-time termination across host suspension is unverified. Supervised runs require an awake host.
 - Automatic trace redaction and retention cleanup are not implemented. Raw evidence remains private and requires review before sharing.
 
-Executable components are excluded from this documentation release while the project's own licensing and distribution terms remain unresolved. Any later code release requires a separate file, dependency, license, trace, and history review under the [publication policy](../governance/publication-policy.md).
+The executable source is published for supervised local use under ASE-Lab's [MIT License](../../LICENSE). The recorded evaluation attempts used earlier private revisions; later result-contract and cleanup corrections have deterministic tests but no new live three-case run. Any future release still requires file, dependency, license, trace, and history review under the [publication policy](../governance/publication-policy.md).

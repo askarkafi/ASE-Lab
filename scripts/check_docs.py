@@ -11,9 +11,10 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 LINK_RE = re.compile(r'!?\[[^\]]*\]\(([^)]+)\)')
 errors = []
+SKIP_DIRS = {'.git', '.venv', 'node_modules', 'runs', 'artifacts', 'logs', 'build', 'dist'}
 
 for markdown_file in sorted(ROOT.rglob('*.md')):
-    if any(segment in {'.git', '.venv', 'node_modules'} for segment in markdown_file.relative_to(ROOT).parts):
+    if any(segment in SKIP_DIRS for segment in markdown_file.relative_to(ROOT).parts):
         continue
     content = markdown_file.read_text(encoding='utf-8')
     for match in LINK_RE.finditer(content):

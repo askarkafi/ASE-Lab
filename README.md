@@ -4,7 +4,7 @@
 
 *Design and incremental development of an extensible LLM-based agent platform for software engineering.*
 
-> **Project status:** A first supervised software slice was built and evaluated privately. No executable ASE-Lab capability or production platform has been published yet.
+> **Project status:** A first supervised software slice is available for review and local execution. No production platform has been released.
 
 ## Overview
 
@@ -30,10 +30,12 @@ The initial academic stage targets **a small but genuine part of the long-term s
 | Project documentation | Initial public foundation |
 | SDK selection | OpenHands 1.62.0 exercised in a private ASE-Lab command-line integration |
 | Detailed architecture | Not finalized |
-| First implementation slice | Supervised repository issue investigation implemented and evaluated privately; code publication pending |
-| Functional product release | Not available |
+| First implementation slice | Supervised repository issue investigation implemented, evaluated privately, and released as source |
+| Production product release | Not available |
 
 ## Documentation
+
+The [first-slice run guide](ase_lab/README.md) explains the included code, prerequisites, limits, and reviewable outputs.
 
 Start with the [documentation index](docs/README.md). Key documents include:
 
@@ -55,7 +57,7 @@ This public repository is the **curated, published view** of ASE-Lab. Developmen
 
 ## License status
 
-**No project-wide license has been selected yet.** Public visibility does not, by itself, grant permission to reuse or redistribute ASE-Lab's original content. Licenses for external SDKs and dependencies are separate and will be reviewed before adoption. See the [dependency policy](docs/engineering/dependencies-and-forks.md).
+ASE-Lab's original code and documentation are released under the [MIT License](LICENSE). Third-party dependencies retain their own terms; see [third-party components](THIRD_PARTY.md) and the [dependency policy](docs/engineering/dependencies-and-forks.md).
 
 ## Disclaimer
 

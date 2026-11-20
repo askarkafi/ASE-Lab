@@ -12,16 +12,16 @@ This document contains **publicly established project-level decisions**, not exp
 | P-006 | Start implementation with **OpenHands Software Agent SDK**; reconsider only if a concrete blocker or compelling new evidence warrants it. | Initial implementation decision |
 | P-007 | Use repository issue investigation and a reviewable patch proposal as the first delivery direction; refine its boundaries with task and SDK evidence. | Initial delivery decision |
 | P-008 | Follow the [first-slice delivery plan](../planning/first-slice-delivery-plan.md): validate the SDK path before detailed design, test project-owned behavior during implementation, and fix evaluation tasks before evaluation. | Initial delivery approach |
+| P-009 | Release ASE-Lab's original published code and documentation under the [MIT License](../../LICENSE). | Approved for the first source release |
 
 ## Decisions not yet made
 
 - Long-term runtime strategy beyond the initial OpenHands integration.
 - Detailed module boundaries and integration contracts.
-- Task instances, task-specific review rubrics, and detailed execution settings for the [selected first slice](../planning/first-slice.md). Its capability-level acceptance criteria are agreed.
+- Task instances and execution settings beyond the [evaluated first slice](../planning/first-slice.md).
 - Programming stack and deployment approach.
-- License for ASE-Lab's original code and documentation.
 
-This is a project-level decision, **not** evidence that OpenHands has already been integrated or validated. See [SDK strategy](../engineering/sdk-strategy.md) and the [evidence-linked roadmap](../planning/roadmap.md).
+The initial OpenHands integration and its limits are described in the [run guide](../../ase_lab/README.md) and [evaluation summary](../evaluation/first-slice.md). See [SDK strategy](../engineering/sdk-strategy.md) for the broader selection rationale.
 
 The remaining open decisions are intentional. Public ADRs should be added after a decision is reviewed and ready for publication.
 
