@@ -4,7 +4,7 @@
 
 *Design and incremental development of an extensible LLM-based agent platform for software engineering.*
 
-> **Project status:** A first supervised software slice is available for review and local execution. No production platform has been released.
+> **Project status:** Two supervised software capabilities are available for review and local execution. No production platform has been released.
 
 ## Overview
 
@@ -31,11 +31,12 @@ The initial academic stage targets **a small but genuine part of the long-term s
 | SDK selection | OpenHands 1.62.0 exercised in a private ASE-Lab command-line integration |
 | Detailed architecture | Not finalized |
 | First implementation slice | Supervised repository issue investigation implemented, evaluated privately, and released as source |
+| Repository Analysis | Read-only laboratory capability with cited findings and human review |
 | Production product release | Not available |
 
 ## Documentation
 
-The [first-slice run guide](ase_lab/README.md) explains the included code, prerequisites, limits, and reviewable outputs.
+The [run guide](ase_lab/README.md) explains the included code, prerequisites, limits, and reviewable outputs.
 
 Start with the [documentation index](docs/README.md). Key documents include:
 
@@ -47,6 +48,7 @@ Start with the [documentation index](docs/README.md). Key documents include:
 - [Educational objectives](docs/education/learning-objectives.md)
 - [OpenHands-first, evidence-linked roadmap](docs/planning/roadmap.md)
 - [First-slice evaluation summary](docs/evaluation/first-slice.md)
+- [Repository Analysis evaluation](docs/evaluation/repository-analysis.md)
 - [Academic foundations and evidence-based rationale](docs/research/academic-foundations.md) ([فارسی](docs/research/academic-foundations.fa.md))
 - [University course, project and paper resource index](docs/research/academic-resources.md)
 - [Public release policy](docs/governance/publication-policy.md)
@@ -61,4 +63,4 @@ ASE-Lab's original code and documentation are released under the [MIT License](L
 
 ## Disclaimer
 
-Architecture diagrams and future features remain **design intentions**. The private first-slice evidence supports only the bounded behavior described in the evaluation summary; it is not a release commitment for other features.
+Architecture diagrams and future features remain **design intentions**. The evaluation summaries describe bounded demonstrations and their observed limitations.

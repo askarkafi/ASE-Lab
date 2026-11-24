@@ -1,4 +1,18 @@
-# Run the supervised first slice
+# Run supervised ASE-Lab capabilities
+
+## Run Repository Analysis
+
+Copy the [analysis task example](../tests/analysis.example.json) into ignored `runs/local/`. Replace its placeholder path and all-zero revision with an approved local repository path and the full SHA of the revision to inspect. Enter a focused question and review the execution limits. Use the locked image and a local DeepSeek key as described below.
+
+```powershell
+python -m ase_lab.analysis runs/local/analysis.json --secret-file runs/local/deepseek.env
+```
+
+This call sends the question and relevant repository content to DeepSeek and incurs provider usage. Review that transfer before running. ASE-Lab creates a disposable checkout, mounts it read-only, and independently checks that it remained unchanged. Symlinks and submodules are outside the supported scope.
+
+Review `report.md` and `result.json` under `runs/analysis/<run-id>/`. The result is `analysis_report` when it has validated source references, `inconclusive` when inspected evidence is insufficient, or `no_result` on an invalid answer or failed run. JSON results use schema 2, while the analysis task uses schema 1. ASE-Lab extracts exact excerpts from the cited tracked files. Reviewers judge whether those excerpts support the claims and whether the answer covers the full question. See the [evaluation summary](../docs/evaluation/repository-analysis.md).
+
+## Run the supervised first slice
 
 ASE-Lab's first executable slice investigates one issue in an approved local Git repository snapshot. It uses OpenHands SDK 1.62.0 for the agent loop and a project-owned supervisor for task validation, workspace preparation, execution bounds, diff inspection, independent validation, and reviewable output. It is a supervised engineering demonstration, not a production service.
 
@@ -11,7 +25,7 @@ ASE-Lab's first executable slice investigates one issue in an approved local Git
 Build the pinned feasibility image from the included [Dockerfile](../experiments/sdk-feasibility/Dockerfile):
 
 ```powershell
-docker build -t ase-lab-feasibility:openhands-1.62.0 experiments/sdk-feasibility
+docker build -t ase-lab-feasibility:openhands-1.62.0-locked experiments/sdk-feasibility
 ```
 
 Copy the [example task](../tests/task.example.json) to a local file under ignored `runs/`, replace its `repository` value with an absolute path to the approved clone, and review its issue, allowed files, validation commands, and limits. The example references a public `more-itertools` revision; ASE-Lab does not bundle that project's source.

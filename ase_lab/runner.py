@@ -12,6 +12,7 @@ import time
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_IMAGE = "ase-lab-feasibility:openhands-1.62.0-locked"
 DEFAULT_LIMITS = dict(wall_seconds=900, sdk_iterations=25, model_requests=25,
                       memory_mib=2048, cpus=2, pids=128)
 
@@ -338,7 +339,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("task", type=Path)
     parser.add_argument("--secret-file", required=True, type=Path)
-    parser.add_argument("--image", default="ase-lab-feasibility:openhands-1.62.0")
+    parser.add_argument("--image", default=DEFAULT_IMAGE)
     parser.add_argument("--output", type=Path, default=ROOT / "runs/first-slice")
     args = parser.parse_args()
     out = run(args.task, args.secret_file, args.image, args.output)

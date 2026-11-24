@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "locate-feature",
+  "capability": "repository_analysis",
+  "question": "Where is feature X implemented, what related components does it use, and which tests exercise it?",
+  "repository": "C:/replace/with/approved/local/repository",
+  "revision": "0000000000000000000000000000000000000000",
+  "model_profile": "deepseek-flash-relay",
+  "limits": {
+    "wall_seconds": 900,
+    "sdk_iterations": 25,
+    "model_requests": 25,
+    "memory_mib": 2048,
+    "cpus": 2,
+    "pids": 128
+  }
+}

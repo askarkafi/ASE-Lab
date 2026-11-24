@@ -8,11 +8,12 @@ These documents describe the **public, currently known** direction of ASE-Lab. A
 - [Scope](overview/scope.md) — the distinction between the product vision and the first academic stage.
 - [First delivery slice](planning/first-slice.md) - selected problem direction, acceptance approach, and decision gates.
 - [First-slice delivery plan](planning/first-slice-delivery-plan.md) - execution checkpoints, evidence, and timing of open decisions.
-- [First-slice evaluation summary](evaluation/first-slice.md) - reviewed private outcomes, failures, and remaining limits.
+- [First-slice evaluation summary](evaluation/first-slice.md) - reviewed outcomes, failures, and remaining limits.
+- [Repository Analysis evaluation](evaluation/repository-analysis.md) - evidence and limits of the read-only laboratory capability.
 
 ## Software architecture
 
-- [First-slice run guide](../ase_lab/README.md) - executable source, task contract, boundaries, and local validation.
+- [Supervised run guide](../ase_lab/README.md) - executable source, task contract, boundaries, and local validation.
 - [Conceptual architecture](architecture/conceptual-architecture.md) — responsibilities and boundaries, not a finished design.
 - [Public decisions](architecture/decisions.md) — established principles only; unresolved technical decisions remain open.
 - [ADR template](adr/TEMPLATE.md) — structure for publishing accepted architecture decisions when appropriate.

@@ -4,9 +4,13 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN python -m pip install --no-cache-dir \
-    openhands-sdk==1.62.0 \
-    openhands-tools==1.62.0
+COPY requirements.lock /tmp/requirements.lock
+
+RUN python -m pip install --no-cache-dir --no-deps -r /tmp/requirements.lock \
+    && python -m pip check \
+    && python -m pip list --format=freeze | sort > /tmp/installed.txt \
+    && sort /tmp/requirements.lock > /tmp/locked.txt \
+    && diff -u /tmp/locked.txt /tmp/installed.txt
 
 RUN useradd --uid 10001 --create-home agent
 WORKDIR /work

@@ -60,6 +60,8 @@ The OpenHands selection is a **working engineering decision** intended to avoid 
 
 **Checkpoint:** A small, understandable and defensible release; explicitly distinguish demonstrated functionality from intentions.
 
+**Second increment.** Repository Analysis adds read-only, supervised analysis of a fixed Git revision with source citations. Its [laboratory evaluation](../evaluation/repository-analysis.md) records both complete and partial answers, with human review as part of the workflow.
+
 ## Boundaries and later directions
 
 - Do **not** delay the next implementation step for another broad SDK comparison.

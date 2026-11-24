@@ -2,6 +2,7 @@
 
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.client import RemoteDisconnected
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -31,6 +32,67 @@ MAX_TOTAL_TOKENS = 500_000
 remaining = 25
 requests_used = 0
 total_tokens = 0
+analysis_budget = False
+MAX_ANALYSIS_TOOL_CHARS = 2400
+TRUNCATED_TOOL_OUTPUT = "\n[Tool output truncated by ASE-Lab]"
+
+
+def truncate_tool_output(content):
+    if isinstance(content, str):
+        if len(content) > MAX_ANALYSIS_TOOL_CHARS:
+            return content[:MAX_ANALYSIS_TOOL_CHARS] + TRUNCATED_TOOL_OUTPUT
+        return content
+    if not isinstance(content, list):
+        return content
+
+    # OpenHands sends tool observations as a list of typed content parts.
+    parts = []
+    remaining_chars = MAX_ANALYSIS_TOOL_CHARS
+    truncated = False
+    for part in content:
+        if part.get("type") != "text":
+            parts.append(part)
+            continue
+        text = part["text"]
+        if len(text) <= remaining_chars:
+            parts.append(part)
+            remaining_chars -= len(text)
+        elif not truncated:
+            parts.append({**part, "text": text[:remaining_chars] + TRUNCATED_TOOL_OUTPUT})
+            remaining_chars = 0
+            truncated = True
+    return parts
+
+
+def analysis_payload(payload: dict, final_turn: bool) -> bytes:
+    """Bound tool context and reserve the last request for a report."""
+    for message in payload["messages"]:
+        if message.get("role") == "tool":
+            message["content"] = truncate_tool_output(message.get("content"))
+    if final_turn:
+        finish = [tool for tool in payload.get("tools", [])
+                  if tool.get("function", {}).get("name") == "finish"]
+        if len(finish) != 1:
+            raise ValueError("Missing finish tool")
+        payload["tools"] = finish
+        payload["tool_choice"] = {"type": "function", "function": {"name": "finish"}}
+        payload["thinking"] = {"type": "disabled"}
+        payload["messages"].append({"role": "user", "content":
+            "Search budget ended. Call finish now with the requested JSON using only evidence already gathered. "
+            "Report supported findings and remaining uncertainty. If none are supported, return an inconclusive answer."})
+    return json.dumps(payload, ensure_ascii=False).encode("utf-8")
+
+
+def local_budget_error(handler: BaseHTTPRequestHandler) -> None:
+    """Reject a spent local allowance without suggesting an upstream rate limit."""
+    body = json.dumps({"error": {"message": "ASE-Lab local relay budget exhausted",
+                                  "type": "invalid_request_error",
+                                  "code": "ase_lab_budget_exhausted"}}).encode()
+    handler.send_response(400)
+    handler.send_header("Content-Type", "application/json")
+    handler.send_header("Content-Length", str(len(body)))
+    handler.end_headers()
+    handler.wfile.write(body)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -49,14 +111,14 @@ class Handler(BaseHTTPRequestHandler):
             return
         body = self.rfile.read(length)
         if remaining <= 0:
-            self.send_error(429)
+            local_budget_error(self)
             return
         try:
             payload = json.loads(body)
         except (ValueError, UnicodeDecodeError):
             self.send_error(400)
             return
-        if payload.get("model") != "deepseek-flash":
+        if not isinstance(payload, dict) or payload.get("model") != "deepseek-flash":
             self.send_error(400, "Unsupported model")
             return
         if payload.get("stream"):
@@ -66,6 +128,13 @@ class Handler(BaseHTTPRequestHandler):
         if type(output_limit) is not int or not 0 < output_limit <= 2048:
             self.send_error(400, "Output token limit exceeded")
             return
+        final_turn = analysis_budget and remaining == 1
+        if analysis_budget:
+            try:
+                body = analysis_payload(payload, final_turn)
+            except (KeyError, TypeError, AttributeError, ValueError):
+                self.send_error(400, "Invalid analysis request")
+                return
         remaining -= 1
         requests_used += 1
         request = Request(
@@ -83,7 +152,11 @@ class Handler(BaseHTTPRequestHandler):
             result = error.read(MAX_RESPONSE_BYTES + 1)
             status = error.code
             content_type = "application/json"
-        except URLError:
+        except (URLError, RemoteDisconnected, TimeoutError, ConnectionError):
+            print(json.dumps({"event": "upstream_transport_error",
+                              "requests_used": requests_used,
+                              "total_tokens": total_tokens,
+                              "usage_unknown_for_request": True}), flush=True)
             self.send_error(502, "Model upstream unavailable")
             return
         if len(result) > MAX_RESPONSE_BYTES:
@@ -91,7 +164,8 @@ class Handler(BaseHTTPRequestHandler):
             return
         if status == 200:
             try:
-                usage = json.loads(result).get("usage", {})
+                completion = json.loads(result)
+                usage = completion.get("usage", {})
                 if not isinstance(usage, dict):
                     raise ValueError("Invalid model usage")
             except (ValueError, AttributeError, UnicodeDecodeError):
@@ -115,10 +189,22 @@ class Handler(BaseHTTPRequestHandler):
                         "completion_tokens": token_count(usage, "completion_tokens"),
                         "total_tokens": total_tokens,
                         "requests_remaining": remaining,
+                        **({"final_turn": final_turn} if analysis_budget else {}),
                     }
                 ),
                 flush=True,
             )
+            if final_turn:
+                try:
+                    choices = completion["choices"]
+                    calls = choices[0]["message"]["tool_calls"]
+                    valid_finish = (len(choices) == 1 and len(calls) == 1
+                                    and calls[0]["function"]["name"] == "finish")
+                except (KeyError, IndexError, TypeError):
+                    valid_finish = False
+                if not valid_finish:
+                    self.send_error(422, "Analysis final turn requires one finish call")
+                    return
         self.send_response(status)
         self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(result)))
